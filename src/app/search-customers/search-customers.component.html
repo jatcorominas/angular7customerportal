@@ -1,0 +1,36 @@
+<h3>Find By Age</h3>
+<div style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="lastname">Age</label>
+      <input type="text" class="form-control" id="age" required [(ngModel)]="age" name="age">
+    </div>
+
+    <div class="btn-group">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <h4>Results</h4>
+    </tr>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Active</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customers">
+      <td class="hidden">{{customer.id}}</td>
+      <td>{{customer.name}}</td>
+      <td>{{customer.age}}</td>
+      <td>{{customer.active}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

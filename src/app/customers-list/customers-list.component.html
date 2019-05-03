@@ -1,0 +1,27 @@
+<h1>Customers</h1>
+<div class="col-md-6">
+ <table class="table table-striped">
+    <!-- <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Status</th>
+    </tr>
+    </thead> -->
+    <tbody>
+    <tr *ngFor="let customer of customers | async">
+      <customer-details [customer]='customer'></customer-details>
+    </tr>
+    </tbody>
+  </table>
+<div>
+<div>
+	<table>
+		<tr>
+		<td>
+  		<button type="button" class="btn btn-success active" (click)='deleteCustomers()'>Delete All</button>
+  		</td>
+  		</tr>
+    </table>
+</div>

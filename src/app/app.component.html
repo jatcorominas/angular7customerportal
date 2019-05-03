@@ -1,0 +1,46 @@
+<div style="padding: 20px;">
+  <h1 style="color: blue">{{title}}</h1>
+  <h3>{{description}}</h3>
+  
+  <div [hidden]="loggedIn" style="width: 300px;">
+    <h3>Login</h3>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">User Name</label>
+        <input type="text" class="form-control" id="username" required [(ngModel)]="user.name" name="username">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+
+  <div [hidden]="!loggedIn">
+    <nav>
+  	 <table>
+  		  <tbody>
+  			 <tr>
+            <td>
+    		      <a routerLink="customer" class="btn btn-success active" role="button" routerLinkActive="active">Customers</a>
+    			   </td>
+    			   <td>
+   			        <a routerLink="add" class="btn btn-success active" role="button" routerLinkActive="active" style="margin-left: 20px;">Add</a>
+   				   </td>
+   				   <td>
+   			        <a routerLink="findbyage" class="btn btn-success active" role="button" routerLinkActive="active" style="margin-left: 20px;">Search</a>
+   				   </td>
+             <td>
+                <button class="btn btn-success" (click)="logOut()" style="margin-left: 20px;">Logout</button>
+             </td>
+   			  </tr>
+    	 </tbody>
+	   </table>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+    
+</div>
